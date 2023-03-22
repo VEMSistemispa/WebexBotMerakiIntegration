@@ -17,7 +17,7 @@ The user can write any text to the bot, if it finds any organizations containing
 
 Main technologies:
 
-- [.Net 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0))
+- [.Net 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 - [Webex](https://www.webex.com/it)
 - [Meraki](https://meraki.cisco.com)
 

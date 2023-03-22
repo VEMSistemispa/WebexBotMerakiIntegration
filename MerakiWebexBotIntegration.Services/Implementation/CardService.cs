@@ -39,7 +39,7 @@ namespace MerakiWebexBotIntegration.Services.Implementation
                                         new BodyDto
                                         {
                                             Type = "TextBlock",
-                                            Text = "Lista comandi disponibili:",
+                                            Text = "Available actions:",
                                             Wrap = true,
                                             Size = "Medium",
                                             Weight = "Bolder",
@@ -68,7 +68,7 @@ namespace MerakiWebexBotIntegration.Services.Implementation
                                                         new ActionDto
                                                         {
                                                             Type = "Action.Submit",
-                                                            Title = "Mostra lista clienti",
+                                                            Title = "Show customer list",
                                                             Data = new {command = (int)Command.ListOrganizations}
                                                         }
                                                     }
@@ -90,7 +90,7 @@ namespace MerakiWebexBotIntegration.Services.Implementation
                                                         new ActionDto
                                                         {
                                                             Type = "Action.Submit",
-                                                            Title = "Mostra lista licenze",
+                                                            Title = "Show license list",
                                                             Data = new {command = (int)Command.ListLicensens}
                                                         }
                                                     }
@@ -102,7 +102,7 @@ namespace MerakiWebexBotIntegration.Services.Implementation
                                 new BodyDto
                                 {
                                     Type = "TextBlock",
-                                    Text = " - Stai cercando una licenza specifica? Prova a digitare il nome del cliente in chat.",
+                                    Text = " - Are you looking for a specific license? Try typing the organitazion name.",
                                     Wrap = true,
                                     Size = "Small",
                                     Color = "Good",

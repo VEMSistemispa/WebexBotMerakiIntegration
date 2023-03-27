@@ -6,7 +6,7 @@ namespace MerakiWebexBotIntegration.Clients.Implementation
 {
     public class WebexClient : IWebexClient
     {
-        private readonly string _url = "https://webexapis.com/v1/webhooks/incoming/Y2lzY29zcGFyazovL3VzL1dFQkhPT0svMzA1YjM1YTUtYTQ3MC00YzUxLThiMTEtNjllMDIyMDVhNGEw"; //insert the incoming webhook url here
+        private readonly string _url = ""; //insert the incoming webhook url here
         public async Task<HttpResponseMessage> SendMessageAsync(string logMessage)
         {
             var httpClient = new HttpClient();

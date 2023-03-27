@@ -32,7 +32,7 @@ namespace MerakiWebexBotIntegration.Services.Implementation
                     
                     foreach (var organization in organizations)
                     {
-                        response += $"Cliente: {organization.Name}. Id cliente: {organization.Id}\n";
+                        response += $"Customer: {organization.Name}. Customer Id: {organization.Id}\n";
                     }
 
                     break;
@@ -41,7 +41,7 @@ namespace MerakiWebexBotIntegration.Services.Implementation
                     response = await GetOrganizationLicenceMessageAsync(organizationList);
                     break;
                 default:
-                    response = "Comando non valido.";
+                    response = "Invalid command.";
                     break;
             }
             return response;
@@ -72,7 +72,7 @@ namespace MerakiWebexBotIntegration.Services.Implementation
             {
                 var organizationLicense = await _licenceService.GetLicenceAsync(organization.Id);
                 var expiredMessage = _licenceService.GetLicenceExpirationMessage(organizationLicense.ExpirationDate);
-                response += $"Cliente: {organization.Name}. Data di scadenza della licenza: {expiredMessage}\n";
+                response += $"Customer: {organization.Name}. License expiration date: {expiredMessage}\n";
             }
             return response;
         }

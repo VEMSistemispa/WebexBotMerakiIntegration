@@ -2,6 +2,7 @@
 using MerakiWebexBotIntegration.Services.Interfaces;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
+using MerakiWebexBotIntegration.Clients.Interfaces;
 
 namespace MerakiWebexBotIntegration.Controllers
 {
@@ -13,12 +14,14 @@ namespace MerakiWebexBotIntegration.Controllers
         private readonly IMessageService _messageService;
         private readonly IAttachmentActionService _attachmentActionService;
         private readonly ICardService _cardService;
-        public BotController(IBotService botService, IAttachmentActionService attachmentActionService, ICardService cardService, IMessageService messageService)
+        private readonly IWebexClient _webexClient;
+        public BotController(IBotService botService, IAttachmentActionService attachmentActionService, ICardService cardService, IMessageService messageService, IWebexClient webexClient)
         {
             _botService = botService;
             _messageService = messageService;
             _attachmentActionService = attachmentActionService;
             _cardService = cardService;
+            _webexClient = webexClient;
         }
         [HttpPost]
         public async Task<HttpResponseMessage> ReplyToUser(JsonElement webhookBody)
@@ -33,13 +36,15 @@ namespace MerakiWebexBotIntegration.Controllers
             };
             return await _messageService.SendMessageAsync(message);
         }
+
+
         [HttpPost]
         [Route("card")]
         public async Task<HttpResponseMessage> PostCard(JsonElement webhookBody)
         {
             var webhookBodyDto = JsonSerializer.Deserialize<WebhookBodyDto>(webhookBody);
+            await _webexClient.SendMessageAsync(webhookBodyDto.Data.Id + " \n" + webhookBodyDto.Data.PersonId);
             return await _botService.ReplyToMessageAsync(webhookBodyDto.Data.Id, webhookBodyDto.Data.PersonId);
         }
     }
 }
-//se nel testo del messaggio è presente il nome di un organizzazione mostrare dettagli (if(str.Contains("hello"))) webhookbodydto.data.id

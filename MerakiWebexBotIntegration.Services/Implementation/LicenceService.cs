@@ -24,11 +24,11 @@ namespace MerakiWebexBotIntegration.Services.Implementation
             var expiredMessage = $"{expirationDate.ToShortDateString()} ";
             if (expirationDate.Date < DateTime.UtcNow.Date)
             {
-                expiredMessage += "(la licenza è scaduta)";
+                expiredMessage += "(license expired)";
             }
             if (expirationDate.Date == DateTime.UtcNow.Date)
             {
-                expiredMessage += "(la licenza scade in data odierna)";
+                expiredMessage += "(license expires today)";
             }
             return expiredMessage;
         }

@@ -71,8 +71,7 @@ namespace MerakiWebexBotIntegration.Services.Implementation
             foreach (var organization in organizations)
             {
                 var organizationLicense = await _licenceService.GetLicenceAsync(organization.Id);
-                var expiredMessage = _licenceService.GetLicenceExpirationMessage(organizationLicense.ExpirationDate);
-                response += $"Customer: {organization.Name}. License expiration date: {expiredMessage}\n";
+                response += $"Customer: {organization.Name}. License expiration date: {organizationLicense.ExpirationDate}\n";
             }
             return response;
         }

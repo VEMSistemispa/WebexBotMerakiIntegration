@@ -21,6 +21,7 @@ namespace MerakiWebexBotIntegration.Controllers
             _attachmentActionService = attachmentActionService;
         }
 
+        // url/bot
         [HttpPost]
         public async Task<HttpResponseMessage> ReplyToUser(JsonElement webhookBody)
         {
@@ -35,7 +36,7 @@ namespace MerakiWebexBotIntegration.Controllers
             return await _messageService.SendMessageAsync(message);
         }
 
-
+        // url/bot/card
         [HttpPost]
         [Route("card")]
         public async Task<HttpResponseMessage> PostCard(JsonElement webhookBody)
